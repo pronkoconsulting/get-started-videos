@@ -1,0 +1,35 @@
+.get-started-container {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+}
+
+.video-links-container {
+    background-color: white;
+    box-shadow: #da4100 0px 2px 4px 0px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    float: right;
+}
+
+.video-links {
+    margin: 0;
+    list-style: none;
+}
+
+.page-footer a.video-link {
+    text-decoration: none;
+    color: black;
+}
+
+.get-started-button, .get-started-button:hover, .get-started-button:focus, .get-started-button:visited {
+    padding: 0;
+    height: 40px;
+    width: 40px;
+    float: right;
+    clear: both;
+    color: white;
+    box-shadow: #da4100 0px 2px 4px 0px;
+    border-radius: 100%;
+    background: #eb5202;
+}

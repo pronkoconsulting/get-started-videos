@@ -1,0 +1,31 @@
+<?php
+/** @var  MageMastery\GetStartedVideos\ViewModel\Videos $viewModel */
+    $viewModel = $block->getData('viewModel');
+?>
+<div data-bind="scope: 'get-started-component'" class="get-started-container">
+    <div class="video-links-container" style="display: none;" data-bind="visible: isShowVideoLinks">
+        <div class="videos-header">
+            <p>Get Started Videos</p>
+        </div>
+        <ul class="video-links">
+            <!--ko foreach: { data: getVideosData(), as: 'video' } -->
+                <li><a class="video-link" data-bind="attr:{href: video.url}, text: video.title"></a></li>
+            <!--/ko-->
+        </ul>
+    </div>
+    <button class="get-started-button" data-bind="text: buttonText">?</button>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "get-started-component": {
+                        "component": "MageMastery_GetStartedVideos/js/get-started-component",
+                        "videosData": <?= $viewModel->getVideosDataJson() ?>
+                    }
+                }
+              }
+        }
+    }
+</script>
