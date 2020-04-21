@@ -33,3 +33,26 @@
     border-radius: 100%;
     background: #eb5202;
 }
+
+.video-link .image-container {
+    width: 20%;
+    display: block;
+    float: left;
+}
+
+li.video-link-container {
+    clear: both;
+}
+
+.video-link .meta-data {
+    float: left;
+    margin-left: 5px;
+}
+
+.video-link .meta-data .duration {
+    color: rgb(145, 155, 174);
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 11px;
+}
