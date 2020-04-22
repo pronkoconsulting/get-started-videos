@@ -11,7 +11,6 @@ use Magento\Framework\HTTP\Client\Curl;
 class Videos implements ArgumentInterface
 {
     private const VIDEO_DATA_TEMPLATE = "https://vimeo.com/api/v2/video/{VIDEO_ID}.json";
-    private const VIDEOS_IDS = ["410112490", "410112480", "410112470"];
 
     /**
      * @var Curl
@@ -22,18 +21,25 @@ class Videos implements ArgumentInterface
      * @var Json
      */
     private $serializer;
+    /**
+     * @var array
+     */
+    private $videosIds;
 
     /**
      * Videos constructor.
      * @param Json $serializer
      * @param Curl $curl
+     * @param array $videosIds
      */
     public function __construct(
         Json $serializer,
-        Curl $curl
+        Curl $curl,
+        $videosIds = []
     ) {
         $this->serializer = $serializer;
         $this->curl = $curl;
+        $this->videosIds = $videosIds;
     }
 
     /**
@@ -47,6 +53,9 @@ class Videos implements ArgumentInterface
         $jsonData = $this->curl->getBody();
         try {
             $data = $this->serializer->unserialize($jsonData);
+            if (!isset($data[0])) {
+                return [];
+            }
         } catch (\InvalidArgumentException $exception) {
             return [];
         }
@@ -69,7 +78,7 @@ class Videos implements ArgumentInterface
     public function getVideosDataJson()
     {
         $allVideosData = [];
-        foreach (self::VIDEOS_IDS as $videoId) {
+        foreach ($this->videosIds as $videoId) {
             $videoData = $this->getVideoData($videoId);
             if (!empty($videoData)) {
                 $allVideosData[] = [
