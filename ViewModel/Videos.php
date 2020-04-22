@@ -21,6 +21,7 @@ class Videos implements ArgumentInterface
      * @var Json
      */
     private $serializer;
+
     /**
      * @var array
      */
