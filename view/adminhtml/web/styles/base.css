@@ -57,17 +57,16 @@ li.video-link-container {
     line-height: 11px;
 }
 
+.video-popup div.modal-inner-wrap {
+    width: 700px;
+}
+
 .video-content {
     width: 600px;
-    height: 400px;
+    height: 350px;
 }
 
-.video-container {
-    width: 100%;
-    height: 100%;
-}
-
-.video-container iframe.video-frame {
+iframe.video-frame {
     width: 600px;
     height: 300px;
 }

@@ -2,35 +2,61 @@ define([
         'jquery',
         "uiComponent",
         "ko",
-        'Magento_Ui/js/modal/modal'
-    ], function ($, Component, ko, modal) {
+        'Magento_Ui/js/modal/modal',
+        "underscore"
+    ], function ($, Component, ko, modal, _) {
         "use strict";
         return Component.extend({
             initialize: function () {
                 this._super();
-                this.modalText = ko.observable("modal text");
-                this.videoUrl = ko.observable("broken");
-                this.videoTitle = ko.observable("video title");
+                this.videos = this._getVideos();
                 this._initModal();
             },
+            _getVideos: function () {
+                let videosData = _.toArray(this.videosData);
+                videosData = videosData.map(function (value) {
+                    value.visible = ko.observable(false);
+                    return value;
+                });
+                return videosData;
+            },
             _initModal: function () {
-                let $this = this;
-                let options = {
+                const options = {
                     type: 'popup',
-                    responsive: true,
-                    innerScroll: true,
+                    modalClass: 'video-popup',
                     buttons: []
                 };
-                var popup = modal(options, $('#video-modal'));
+                modal(options, $('#video-modal'));
+                this._bindModalFunctions();
+            },
+            _bindModalFunctions: function () {
+                const $this = this;
+
                 $('.video-link').live("click", function (e) {
                     e.preventDefault();
-                    let link = $(this).attr("video-url");
-                    let title = $(this).attr("video-title");
-                    $this.videoTitle(title);
-                    $this.videoUrl(link);
+                    const videoIndex = $(this).attr('video-id');
+                    $this.videos[videoIndex].visible(true);
                     $('#video-modal').modal('openModal');
+
                 });
+
+                $('#video-modal').live('modalclosed', function (e) {
+                    $this.videos.forEach(function (video) {
+                        video.visible(false);
+                    });
+                    $this._pauseVideos();
+                })
+            },
+            _pauseVideos: function () {
+                if ($f) {
+                    $('.video-frame').each(function () {
+                        const iframe = $(this)[0];
+                        if (iframe) {
+                            const player = $f(iframe);
+                            player.api('pause');
+                        }
+                    });
+                }
             }
         });
-    }
-);
+    });

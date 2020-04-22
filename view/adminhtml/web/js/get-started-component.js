@@ -10,6 +10,7 @@ define([
             this._super();
             this.buttonText = ko.observable("?");
             this.isShowVideoLinks = ko.observable(false);
+            this.arrayVideosData =  _.toArray(this.videosData);
             this.bindButton();
         },
         bindButton: function () {
@@ -22,7 +23,7 @@ define([
             });
         },
         getVideosData: function () {
-            return _.toArray(this.videosData);
+            return this.arrayVideosData;
         }
     });
 });
