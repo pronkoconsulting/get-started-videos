@@ -14,9 +14,9 @@ define([
             this.bindButton();
         },
         bindButton: function () {
-            let $this = this;
+            var $this = this;
             $('.get-started-button').live("click", function (e) {
-                let isShow = $this.isShowVideoLinks();
+                var isShow = $this.isShowVideoLinks();
                 isShow = !isShow;
                 $this.isShowVideoLinks(isShow);
                 $this.buttonText(isShow ? "x" : "?");

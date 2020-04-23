@@ -3,7 +3,8 @@ define([
         "uiComponent",
         "ko",
         'Magento_Ui/js/modal/modal',
-        "underscore"
+        "underscore",
+        "vimeo"
     ], function ($, Component, ko, modal, _) {
         "use strict";
         return Component.extend({
@@ -13,7 +14,7 @@ define([
                 this._initModal();
             },
             _getVideos: function () {
-                let videosData = _.toArray(this.videosData);
+                var videosData = _.toArray(this.videosData);
                 videosData = videosData.map(function (value) {
                     value.visible = ko.observable(false);
                     return value;
@@ -21,7 +22,7 @@ define([
                 return videosData;
             },
             _initModal: function () {
-                const options = {
+                var options = {
                     type: 'popup',
                     modalClass: 'video-popup',
                     buttons: []
@@ -30,11 +31,11 @@ define([
                 this._bindModalFunctions();
             },
             _bindModalFunctions: function () {
-                const $this = this;
+                var $this = this;
 
                 $('.video-link').live("click", function (e) {
                     e.preventDefault();
-                    const videoIndex = $(this).attr('video-id');
+                    var videoIndex = $(this).attr('video-id');
                     $this.videos[videoIndex].visible(true);
                     $('#video-modal').modal('openModal');
 
@@ -48,11 +49,11 @@ define([
                 })
             },
             _pauseVideos: function () {
-                if ($f) {
+                if (window.$f) {
                     $('.video-frame').each(function () {
-                        const iframe = $(this)[0];
+                        var iframe = $(this)[0];
                         if (iframe) {
-                            const player = $f(iframe);
+                            var player = window.$f(iframe);
                             player.api('pause');
                         }
                     });
