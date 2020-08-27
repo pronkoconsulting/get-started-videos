@@ -56,3 +56,17 @@ li.video-link-container {
     font-size: 11px;
     line-height: 11px;
 }
+
+.video-popup div.modal-inner-wrap {
+    width: 700px;
+}
+
+.video-content {
+    width: 600px;
+    height: 350px;
+}
+
+iframe.video-frame {
+    width: 600px;
+    height: 300px;
+}

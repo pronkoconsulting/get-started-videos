@@ -1,6 +1,7 @@
 <?php
 /** @var  MageMastery\GetStartedVideos\ViewModel\Videos $viewModel */
-    $viewModel = $block->getData('viewModel');
+$viewModel = $block->getData('viewModel');
+$videosJsonData = $viewModel->getVideosDataJson();
 ?>
 <div data-bind="scope: 'get-started-component'" class="get-started-container">
     <div class="video-links-container" style="display: none;" data-bind="visible: isShowVideoLinks">
@@ -9,21 +10,33 @@
         </div>
         <ul class="video-links">
             <!--ko foreach: { data: getVideosData(), as: 'video' } -->
-                <li class="video-link-container">
-                    <a class="video-link" href="#" data-bind="attr:{'video-url': video.url, 'video-title': video.title}">
-                        <div class="image-container">
-                            <img data-bind="attr:{src: video.image}" />
-                        </div>
-                        <div class="meta-data">
-                            <p class="title" data-bind="text: video.title"></p>
-                            <p class="duration" data-bind="text: video.duration"></p>
-                        </div>
-                    </a>
-                </li>
+            <li class="video-link-container">
+                <a class="video-link" href="#" data-bind="attr:{'video-id': $index}">
+                    <div class="image-container">
+                        <img data-bind="attr:{src: video.image}" />
+                    </div>
+                    <div class="meta-data">
+                        <p class="title" data-bind="text: video.title"></p>
+                        <p class="duration" data-bind="text: video.duration"></p>
+                    </div>
+                </a>
+            </li>
             <!--/ko-->
         </ul>
     </div>
     <button class="get-started-button" data-bind="text: buttonText">?</button>
+</div>
+<div data-bind="scope: 'video-modal-component'" id="video-modal" style="display:none;">
+        <!--ko foreach: { data: videos, as: 'video' } -->
+        <div class="video-content" style="display: none" data-bind="visible: video.visible">
+            <div class="video-header">
+                <p data-bind="text: video.title"></p>
+            </div>
+            <div class="video-container">
+                <iframe class="video-frame" data-bind="attr:{src: video.url}" width="600" height="300" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <!--/ko-->
 </div>
 <script type="text/x-magento-init">
     {
@@ -32,7 +45,11 @@
                 "components": {
                     "get-started-component": {
                         "component": "MageMastery_GetStartedVideos/js/get-started-component",
-                        "videosData": <?= $viewModel->getVideosDataJson() ?>
+                        "videosData": <?= $videosJsonData ?>
+                    },
+                    "video-modal-component": {
+                        "component": "MageMastery_GetStartedVideos/js/video-modal-component",
+                        "videosData": <?= $videosJsonData ?>
                     }
                 }
               }

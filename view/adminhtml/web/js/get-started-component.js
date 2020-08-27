@@ -10,19 +10,20 @@ define([
             this._super();
             this.buttonText = ko.observable("?");
             this.isShowVideoLinks = ko.observable(false);
+            this.arrayVideosData =  _.toArray(this.videosData);
             this.bindButton();
         },
         bindButton: function () {
-            let $this = this;
+            var $this = this;
             $('.get-started-button').live("click", function (e) {
-                let isShow = $this.isShowVideoLinks();
+                var isShow = $this.isShowVideoLinks();
                 isShow = !isShow;
                 $this.isShowVideoLinks(isShow);
                 $this.buttonText(isShow ? "x" : "?");
             });
         },
         getVideosData: function () {
-            return _.toArray(this.videosData);
+            return this.arrayVideosData;
         }
     });
 });
