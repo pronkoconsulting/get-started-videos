@@ -6,7 +6,7 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="MageMastery\GetStartedVideos\ViewModel\Videos">
+    <type name="Pronko\GetStartedVideos\ViewModel\Videos">
         <arguments>
             <argument name="videosIds" xsi:type="array">
                 <item name="0" xsi:type="string">452329421</item>

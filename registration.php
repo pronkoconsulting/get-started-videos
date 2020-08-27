@@ -7,6 +7,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'MageMastery_GetStartedVideos',
+    'Pronko_GetStartedVideos',
     __DIR__
 );

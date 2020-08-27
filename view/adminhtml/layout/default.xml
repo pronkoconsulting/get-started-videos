@@ -7,15 +7,15 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <css src="MageMastery_GetStartedVideos::styles/base.css"/>
+        <css src="Pronko_GetStartedVideos::styles/base.css"/>
     </head>
     <body>
         <referenceContainer name="footer">
-            <block name="magemastery.getstarted.button"
+            <block name="Pronko.getstarted.button"
                    class="Magento\Framework\View\Element\Template"
-                   template="MageMastery_GetStartedVideos::get_started.phtml">
+                   template="Pronko_GetStartedVideos::get_started.phtml">
                 <arguments>
-                    <argument name="viewModel" xsi:type="object">MageMastery\GetStartedVideos\ViewModel\Videos</argument>
+                    <argument name="viewModel" xsi:type="object">Pronko\GetStartedVideos\ViewModel\Videos</argument>
                 </arguments>
             </block>
         </referenceContainer>

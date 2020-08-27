@@ -4,7 +4,7 @@
  * See LICENSE for the license details.
  */
 
-/** @var  MageMastery\GetStartedVideos\ViewModel\Videos $viewModel */
+/** @var  Pronko\GetStartedVideos\ViewModel\Videos $viewModel */
 $viewModel = $block->getData('viewModel');
 $videosJsonData = $viewModel->getVideosDataJson();
 ?>
@@ -49,11 +49,11 @@ $videosJsonData = $viewModel->getVideosDataJson();
             "Magento_Ui/js/core/app": {
                 "components": {
                     "get-started-component": {
-                        "component": "MageMastery_GetStartedVideos/js/get-started-component",
+                        "component": "Pronko_GetStartedVideos/js/get-started-component",
                         "videosData": <?= $videosJsonData ?>
                     },
                     "video-modal-component": {
-                        "component": "MageMastery_GetStartedVideos/js/video-modal-component",
+                        "component": "Pronko_GetStartedVideos/js/video-modal-component",
                         "videosData": <?= $videosJsonData ?>
                     }
                 }

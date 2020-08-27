@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace MageMastery\GetStartedVideos\ViewModel;
+namespace Pronko\GetStartedVideos\ViewModel;
 
 use InvalidArgumentException;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
