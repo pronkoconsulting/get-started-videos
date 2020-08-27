@@ -1,3 +1,7 @@
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
 define([
     "jquery",
     "uiComponent",
@@ -5,6 +9,7 @@ define([
     "underscore"
 ], function ($, Component, ko, _) {
     "use strict";
+
     return Component.extend({
         initialize: function () {
             this._super();

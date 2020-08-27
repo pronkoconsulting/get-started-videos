@@ -1,11 +1,17 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="MageMastery\GetStartedVideos\ViewModel\Videos">
         <arguments>
             <argument name="videosIds" xsi:type="array">
-                <item name="0" xsi:type="string">410112490</item>
-                <item name="1" xsi:type="string">410112480</item>
-                <item name="2" xsi:type="string">410112470</item>
+                <item name="0" xsi:type="string">452329421</item>
+                <item name="1" xsi:type="string">452332660</item>
+                <item name="2" xsi:type="string">452333091</item>
             </argument>
         </arguments>
     </type>

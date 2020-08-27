@@ -1,4 +1,9 @@
 <?php
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
+
 /** @var  MageMastery\GetStartedVideos\ViewModel\Videos $viewModel */
 $viewModel = $block->getData('viewModel');
 $videosJsonData = $viewModel->getVideosDataJson();
@@ -30,7 +35,7 @@ $videosJsonData = $viewModel->getVideosDataJson();
         <!--ko foreach: { data: videos, as: 'video' } -->
         <div class="video-content" style="display: none" data-bind="visible: video.visible">
             <div class="video-header">
-                <p data-bind="text: video.title"></p>
+                <h3 data-bind="text: video.title"></h3>
             </div>
             <div class="video-container">
                 <iframe class="video-frame" data-bind="attr:{src: video.url}" width="600" height="300" frameborder="0" allowfullscreen></iframe>

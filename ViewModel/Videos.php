@@ -1,9 +1,13 @@
 <?php
-
+/**
+ * Copyright © Pronko Consulting (https://www.pronkoconsulting.com)
+ * See LICENSE for the license details.
+ */
 declare(strict_types=1);
 
 namespace MageMastery\GetStartedVideos\ViewModel;
 
+use InvalidArgumentException;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\HTTP\Client\Curl;
@@ -44,7 +48,7 @@ class Videos implements ArgumentInterface
     }
 
     /**
-     * @param $videoId
+     * @param int $videoId
      * @return mixed
      */
     private function getVideoData($videoId)
@@ -57,7 +61,7 @@ class Videos implements ArgumentInterface
             if (!isset($data[0])) {
                 return [];
             }
-        } catch (\InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException $exception) {
             return [];
         }
 
