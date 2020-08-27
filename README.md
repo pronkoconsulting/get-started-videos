@@ -1,6 +1,6 @@
 # Get started videos extension for Magento 2
 
-This module allows to study Magento 2 from admin.
+The module allows studying Magento 2 functionality directly from admin.
 
 ## Installation
 
