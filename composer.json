@@ -2,7 +2,6 @@
   "name": "pronko/get-started-videos",
   "description": "Learn Magento 2 management from admin",
   "type": "magento2-module",
-  "version": "1.0.0",
   "license": "proprietary",
   "authors": [
     {
@@ -26,5 +25,21 @@
     "psr-4": {
       "Pronko\\GetStartedVideos\\": ""
     }
+  },
+  "config": {
+    "allow-plugins": {
+      "magento/composer-dependency-version-audit-plugin": true
+    }
+  },
+  "require-dev": {
+    "magento/magento-coding-standard": "^26.0"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+    ],
+    "post-update-cmd": [
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+    ]
   }
 }

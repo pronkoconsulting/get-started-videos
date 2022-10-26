@@ -38,7 +38,11 @@ $videosJsonData = $viewModel->getVideosDataJson();
                 <h3 data-bind="text: video.title"></h3>
             </div>
             <div class="video-container">
-                <iframe class="video-frame" data-bind="attr:{src: video.url}" width="600" height="300" frameborder="0" allowfullscreen></iframe>
+                <iframe class="video-frame"
+                        data-bind="attr:{src: video.url}"
+                        width="600"
+                        height="300" frameborder="0"
+                        allowfullscreen></iframe>
             </div>
         </div>
         <!--/ko-->
@@ -50,11 +54,11 @@ $videosJsonData = $viewModel->getVideosDataJson();
                 "components": {
                     "get-started-component": {
                         "component": "Pronko_GetStartedVideos/js/get-started-component",
-                        "videosData": <?= $videosJsonData ?>
+                        "videosData": <?= /** @noEscape */ $videosJsonData ?>
                     },
                     "video-modal-component": {
                         "component": "Pronko_GetStartedVideos/js/video-modal-component",
-                        "videosData": <?= $videosJsonData ?>
+                        "videosData": <?= /** @noEscape */ $videosJsonData ?>
                     }
                 }
               }
