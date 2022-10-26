@@ -40,7 +40,7 @@ class Videos implements ArgumentInterface
     public function __construct(
         Json $serializer,
         Curl $curl,
-        $videosIds = []
+        array $videosIds = []
     ) {
         $this->serializer = $serializer;
         $this->curl = $curl;
@@ -48,6 +48,8 @@ class Videos implements ArgumentInterface
     }
 
     /**
+     * Get video data
+     *
      * @param int $videoId
      * @return mixed
      */
@@ -69,7 +71,9 @@ class Videos implements ArgumentInterface
     }
 
     /**
-     * @param $duration
+     * Formats duration of a video
+     *
+     * @param int $duration
      * @return string
      */
     private function formatDuration($duration)
@@ -78,6 +82,8 @@ class Videos implements ArgumentInterface
     }
 
     /**
+     * Get videos data in a json format
+     *
      * @return bool|string
      */
     public function getVideosDataJson()
